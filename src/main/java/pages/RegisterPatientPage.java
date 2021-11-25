@@ -7,10 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import utils.BrowserUtils;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
 public class RegisterPatientPage {
 
     public RegisterPatientPage(WebDriver driver){
@@ -50,8 +46,11 @@ public class RegisterPatientPage {
     @FindBy(xpath = "//input[@placeholder='Person Name']")
     WebElement personName;
 
-    @FindBy(id = "dataCanvas")
-    List<WebElement> allData;
+    @FindBy(xpath = "//span[.='Name: ']/..")
+    WebElement patientName;
+
+    @FindBy(xpath = "//span[.='Address: ']/..")
+    WebElement patientAddress;
 
     public void registerPatient(String givenName, String familyName, String gender, String birthDay,
                                 String birthMonth, String birthYear, String address, String phoneNumber,
@@ -74,11 +73,13 @@ public class RegisterPatientPage {
         nextButton.click();
     }
 
-    public List<String> getAllData(){
-        List<String> allPatientData = new ArrayList<>();
-        for (WebElement data : allData){
-            allPatientData.add(data.getText().trim());
-        }
-        return allPatientData;
+    public String getPatientName(){
+        String patientName = this.patientName.getText();
+        return patientName.substring(patientName.indexOf(":")+1).trim();
+    }
+
+    public String getPatientAddress(){
+        String patientAddress = this.patientAddress.getText();
+        return patientAddress.substring(patientAddress.indexOf(":")+1).trim();
     }
 }
