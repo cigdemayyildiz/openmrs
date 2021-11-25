@@ -8,6 +8,7 @@ import pages.HomePage;
 public class HomePageTest extends TestBase{
 
     HomePage homePage;
+
     @Test
     public void validateHomePageTexts(){
         homePage = new HomePage(driver);
