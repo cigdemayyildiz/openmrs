@@ -14,6 +14,4 @@ public class HomePageTest extends TestBase{
         Assert.assertTrue(homePage.getHeaderText().contains("Inpatient Ward"));
         Assert.assertEquals(homePage.getAppsText(), BusinessData.getExpectedAppNames());
     }
-
-
 }
