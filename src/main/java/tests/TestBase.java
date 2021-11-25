@@ -20,6 +20,7 @@ public class TestBase {
         driver = Driver.getDriver();
         driver.get(ConfigReader.readProperty("loginUrl"));
 
+
         loginPage = new LoginPage(driver);
         loginPage.login(ConfigReader.readProperty("username"),ConfigReader.readProperty("password"),"Inpatient Ward");
     }
