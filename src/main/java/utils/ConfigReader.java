@@ -8,9 +8,7 @@ import java.util.Properties;
 public class ConfigReader {
 
     public static String readProperty(String key){
-
         File file = new File("configuration.properties");
-
         Properties properties = new Properties();
 
         try {
