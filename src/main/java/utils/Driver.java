@@ -14,7 +14,6 @@ public class Driver {
     private Driver(){}
 
     public static WebDriver getDriver(){
-
         String browser = ConfigReader.readProperty("browser");
         if (driver == null){
             switch (browser){
