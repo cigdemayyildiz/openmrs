@@ -1,6 +1,5 @@
 package tests;
 
-import data.BusinessData;
 import data.PatientData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,9 +19,8 @@ public class RegisterPageTests extends TestBase{
         registerPatientPage.registerPatient("David","Hunt","Male","16",
                 "March", "1997", "2200 Devon", "2454445566",
                 "Doctor", "John");
-        System.out.println(BusinessData.getExpectedPatientData());
-        System.out.println(registerPatientPage.getAllData());
-        Assert.assertEquals(registerPatientPage.getAllData(), BusinessData.getExpectedPatientData());
+        Assert.assertEquals(registerPatientPage.getPatientName(), "David, Hunt");
+        Assert.assertEquals(registerPatientPage.getPatientAddress(), "2200 Devon");
     }
 
     @Test(priority = 2, dataProvider = "patientInfo", dataProviderClass = PatientData.class)
@@ -34,5 +32,7 @@ public class RegisterPageTests extends TestBase{
         homePage.clickApp("Register a patient");
         registerPatientPage.registerPatient(givenName, familyName, gender, birthDay, birthMonth, birthYear, address,
                                             phoneNumber, relationshipType, personName);
+        Assert.assertEquals(registerPatientPage.getPatientName(), givenName+", "+familyName);
+        Assert.assertEquals(registerPatientPage.getPatientAddress(), address);
     }
 }
