@@ -13,6 +13,5 @@ public class PatientData {
                 {"Marcus","Mind","Male","18", "July", "1987", "1122 e Though", "5456667788", "Sibling", "Patel"},
                 {"Diana","Jain","Female","28", "February", "1997", "4400 Wacker Dr", "3234443345", "Sibling", "Sameer"}
         };
-
     }
 }
